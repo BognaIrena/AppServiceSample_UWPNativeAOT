@@ -27,9 +27,8 @@ public sealed class LicensingService : IBackgroundTask
     {
         Console.WriteLine("Request received");
 
-        var response = new ValueSet();
-        response.Add("Status", "OK");
-        var responseResult = await args.Request.SendResponseAsync(response);
+        var response = new ValueSet { { "Status", "OK" } };
+        _ = await args.Request.SendResponseAsync(response);
         Console.WriteLine("Response sent");
     }
 

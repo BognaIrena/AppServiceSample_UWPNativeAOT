@@ -69,24 +69,21 @@ namespace newUWPAppServiceTest
                     else
                     {
                         Console.WriteLine($"App service request unsuccessful: {response.Status}");
-                        var resp = new ValueSet();
-                        resp.Add("Status", status);
+                        var resp = new ValueSet { { "Status", status.ToString() } };
                         return resp;
                     }
                 }
                 else
                 {
                     Console.WriteLine($"Unable to connect to app service: {status}");
-                    var resp = new ValueSet();
-                    resp.Add("Status", status);
+                    var resp = new ValueSet { { "Status", status.ToString() } };
                     return resp;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"App service connection throw an exception: {ex.Message}");
-                var resp = new ValueSet();
-                resp.Add("Status", ex.Message);
+                var resp = new ValueSet { { "Status", ex.Message } };
                 return resp;
             }
             finally
