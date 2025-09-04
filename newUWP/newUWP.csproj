@@ -14,8 +14,11 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <PropertyGroup>
-  <CsWinRTIncludes>AppService;</CsWinRTIncludes>
+  <!--CsWinRTIncludes>AppService;</CsWinRTIncludes-->
   <CsWinRTMergeReferencedActivationFactories>true</CsWinRTMergeReferencedActivationFactories>
+  <PackageCertificateThumbprint>EB62AA05C88EBBF53D089C04F19FC97C16083D64</PackageCertificateThumbprint>
+  <PackageCertificateKeyFile>newUWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+  <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
 </PropertyGroup>
 <ItemGroup>
   <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.0-prerelease.250720.1" />
