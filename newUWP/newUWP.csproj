@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows10.0.26100.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.26100.0</TargetPlatformMinVersion>
+    <Nullable>enable</Nullable>
+    <UseUwp>true</UseUwp>
+    <Platforms>x86;x64;arm64;AnyCPU</Platforms>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PublishAot>true</PublishAot>
+    <PublishProfile>win-$(Platform).pubxml</PublishProfile>
+    <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
+    <EnableMsixTooling>true</EnableMsixTooling>
+  </PropertyGroup>
+  <PropertyGroup>
+  <CsWinRTIncludes>AppService;</CsWinRTIncludes>
+  <CsWinRTMergeReferencedActivationFactories>true</CsWinRTMergeReferencedActivationFactories>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.3.0-prerelease.250720.1" />
+</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\AppService\AppService.csproj" />
+		<Reference Include="..\AppService\bin\$(Platform)\$(Configuration)\$(TargetFramework)\AppService.dll" />
+		<!-- Register the .winmd in the APPX manifest (requires the new MSIX tooling) -->
+		<!-- Need to ensure the app entrypoint is used in the manifest (instead of the component entrypoint) -->
+		<WindowsMetadataReference Include="$(MSBuildThisFileDirectory)\..\AppService\bin\$(Platform)\$(Configuration)\$(TargetFramework)\AppService.winmd" Implementation="$(MSBuildProjectName).dll" />
+	</ItemGroup>
+</Project>

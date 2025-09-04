@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "newUWPAppServiceTest": {
+      "commandName": "MsixPackage",
+      "remoteDebugEnabled": true,
+      "remoteDebugMachine": "10.137.212.121",
+      "authenticationMode": "None"
+    }
+  }
+}
