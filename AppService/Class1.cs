@@ -4,7 +4,7 @@ using Windows.ApplicationModel.Background;
 using Windows.Foundation.Collections;
 
 namespace AppService;
-public sealed class LicensingService : IBackgroundTask
+public sealed partial class LicensingService : IBackgroundTask
 {
     private BackgroundTaskDeferral backgroundTaskDeferral;
     private AppServiceConnection appServiceconnection;
